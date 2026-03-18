@@ -1,10 +1,9 @@
-# TODO: fill in GCP connection config
 default_environment: default
 environments:
   default:
     connections:
       google_cloud_platform:
         - name: "gcp-default"
-          project_id: ""
-          service_account_file: ""
+          project_id: "${GCP_PROJECT_ID}"
+          service_account_file: "${GOOGLE_APPLICATION_CREDENTIALS}"
           location: "australia-southeast1"

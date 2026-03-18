@@ -75,5 +75,6 @@ Icon
 .Spotlight-V100
 .Trashes
 
-# Don't ignore .env.example
+# Don't ignore .env.example or bruin config (no secrets, only ${ENV_VAR} placeholders)
 !.env.example
+!.bruin.yml
