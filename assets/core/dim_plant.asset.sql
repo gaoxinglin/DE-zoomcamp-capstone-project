@@ -21,9 +21,25 @@ columns:
       - name: not_null
 @bruin */
 
-SELECT DISTINCT
+-- Keep only the most recently observed state per generator
+WITH latest AS (
+  SELECT
+    gen_code,
+    site_code,
+    fuel_type,
+    tech_code,
+    ROW_NUMBER() OVER (
+      PARTITION BY gen_code
+      ORDER BY MAX(trading_date) DESC
+    ) AS rn
+  FROM staging.stg_generation
+  GROUP BY gen_code, site_code, fuel_type, tech_code
+)
+
+SELECT
   gen_code,
   site_code,
   fuel_type,
   tech_code
-FROM staging.stg_generation
+FROM latest
+WHERE rn = 1

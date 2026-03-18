@@ -22,6 +22,9 @@ url = (
 
 print(f"Downloading {url}")
 response = requests.get(url, timeout=60)
+if response.status_code == 404:
+    print(f"Data not available for {year_month} (HTTP 404), skipping.")
+    raise SystemExit(0)
 response.raise_for_status()
 
 client = storage.Client()
