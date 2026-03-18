@@ -1,8 +1,0 @@
-# TODO: define BQ external table asset
-name: raw.generation_raw
-type: bq.sql
-description: "External table pointing to GCS CSVs"
-depends:
-  - raw.download_emi
-materialization:
-  type: table

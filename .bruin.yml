@@ -5,5 +5,5 @@ environments:
       google_cloud_platform:
         - name: "gcp-default"
           project_id: "${GCP_PROJECT_ID}"
-          service_account_file: "${GOOGLE_APPLICATION_CREDENTIALS}"
           location: "australia-southeast1"
+          use_application_default_credentials: true
