@@ -1,0 +1,985 @@
+2026-03-18T16:03:51.961+1300 [INFO]  Terraform version: 1.14.3
+2026-03-18T16:03:51.961+1300 [DEBUG] using github.com/hashicorp/go-tfe v1.94.0
+2026-03-18T16:03:51.961+1300 [DEBUG] using github.com/hashicorp/hcl/v2 v2.24.0
+2026-03-18T16:03:51.961+1300 [DEBUG] using github.com/hashicorp/terraform-svchost v0.1.1
+2026-03-18T16:03:51.961+1300 [DEBUG] using github.com/zclconf/go-cty v1.16.3
+2026-03-18T16:03:51.961+1300 [INFO]  Go runtime version: go1.25.5
+2026-03-18T16:03:51.961+1300 [INFO]  CLI args: []string{"terraform", "apply", "-auto-approve"}
+2026-03-18T16:03:51.961+1300 [DEBUG] Attempting to open CLI config file: /Users/xinglingao/.terraformrc
+2026-03-18T16:03:51.961+1300 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2026-03-18T16:03:51.961+1300 [DEBUG] ignoring non-existing provider search directory terraform.d/plugins
+2026-03-18T16:03:51.961+1300 [DEBUG] ignoring non-existing provider search directory /Users/xinglingao/.terraform.d/plugins
+2026-03-18T16:03:51.961+1300 [DEBUG] ignoring non-existing provider search directory /Users/xinglingao/Library/Application Support/io.terraform/plugins
+2026-03-18T16:03:51.961+1300 [DEBUG] ignoring non-existing provider search directory /Library/Application Support/io.terraform/plugins
+2026-03-18T16:03:51.962+1300 [INFO]  CLI command args: []string{"apply", "-auto-approve"}
+2026-03-18T16:03:52.015+1300 [DEBUG] checking for provisioner in "."
+2026-03-18T16:03:52.016+1300 [DEBUG] checking for provisioner in "/opt/homebrew/bin"
+2026-03-18T16:03:52.016+1300 [INFO]  backend/local: starting Apply operation
+2026-03-18T16:03:52.019+1300 [DEBUG] created provider logger: level=debug
+2026-03-18T16:03:52.019+1300 [INFO]  provider: configuring client automatic mTLS
+2026-03-18T16:03:52.023+1300 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5 args=[".terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5"]
+2026-03-18T16:03:52.026+1300 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5 pid=40246
+2026-03-18T16:03:52.026+1300 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:52.048+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5: configuring server automatic mTLS: timestamp="2026-03-18T16:03:52.048+1300"
+2026-03-18T16:03:52.052+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: plugin address: address=/var/folders/kw/rtpfp9xx5vj8h1n_95hjltnm0000gn/T/plugin4191229178 network=unix timestamp="2026-03-18T16:03:52.052+1300"
+2026-03-18T16:03:52.052+1300 [DEBUG] provider: using plugin: version=5
+2026-03-18T16:03:52.121+1300 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2026-03-18T16:03:52.122+1300 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5 id=40246
+2026-03-18T16:03:52.128+1300 [DEBUG] provider: plugin exited
+2026-03-18T16:03:52.129+1300 [DEBUG] Building and walking validate graph
+2026-03-18T16:03:52.129+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.core" (*terraform.NodeValidatableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.129+1300 [DEBUG] ProviderTransformer: "data.google_project.project" (*terraform.NodeValidatableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.129+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.raw" (*terraform.NodeValidatableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.129+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.staging" (*terraform.NodeValidatableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.130+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.marts" (*terraform.NodeValidatableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.130+1300 [DEBUG] ProviderTransformer: "google_billing_budget.alert" (*terraform.NodeValidatableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.130+1300 [DEBUG] ProviderTransformer: "google_storage_bucket.nz_electricity" (*terraform.NodeValidatableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "data.google_project.project" references: [var.project_id]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "var.billing_account" references: []
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/hashicorp/google\"]" references: [var.project_id var.project_id var.region]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.raw" references: [var.region]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.staging" references: [var.region]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "var.bucket_name" references: []
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "var.project_id" references: []
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_raw (expand)" references: [google_bigquery_dataset.raw]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_core (expand)" references: [google_bigquery_dataset.core]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_marts (expand)" references: [google_bigquery_dataset.marts]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.marts" references: [var.region]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "google_billing_budget.alert" references: [var.billing_account data.google_project.project]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "google_storage_bucket.nz_electricity" references: [var.bucket_name var.region]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_staging (expand)" references: [google_bigquery_dataset.staging]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "var.region" references: []
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "output.gcs_bucket_url (expand)" references: [google_storage_bucket.nz_electricity]
+2026-03-18T16:03:52.130+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.core" references: [var.region]
+2026-03-18T16:03:52.130+1300 [DEBUG] Starting graph walk: walkValidate
+2026-03-18T16:03:52.131+1300 [DEBUG] created provider logger: level=debug
+2026-03-18T16:03:52.131+1300 [INFO]  provider: configuring client automatic mTLS
+2026-03-18T16:03:52.132+1300 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5 args=[".terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5"]
+2026-03-18T16:03:52.134+1300 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5 pid=40247
+2026-03-18T16:03:52.134+1300 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:52.156+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5: configuring server automatic mTLS: timestamp="2026-03-18T16:03:52.156+1300"
+2026-03-18T16:03:52.160+1300 [DEBUG] provider: using plugin: version=5
+2026-03-18T16:03:52.160+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: plugin address: address=/var/folders/kw/rtpfp9xx5vj8h1n_95hjltnm0000gn/T/plugin4031403924 network=unix timestamp="2026-03-18T16:03:52.160+1300"
+2026-03-18T16:03:52.179+1300 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2026-03-18T16:03:52.180+1300 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5 id=40247
+2026-03-18T16:03:52.183+1300 [DEBUG] provider: plugin exited
+2026-03-18T16:03:52.183+1300 [INFO]  backend/local: apply calling Plan
+2026-03-18T16:03:52.183+1300 [DEBUG] Building and walking plan graph for NormalMode
+2026-03-18T16:03:52.184+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.marts (expand)" (*terraform.nodeExpandPlannableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.184+1300 [DEBUG] ProviderTransformer: "data.google_project.project (expand)" (*terraform.nodeExpandPlannableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.184+1300 [DEBUG] ProviderTransformer: "google_billing_budget.alert (expand)" (*terraform.nodeExpandPlannableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.184+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.raw (expand)" (*terraform.nodeExpandPlannableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.184+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.core (expand)" (*terraform.nodeExpandPlannableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.184+1300 [DEBUG] ProviderTransformer: "google_storage_bucket.nz_electricity (expand)" (*terraform.nodeExpandPlannableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.184+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.staging (expand)" (*terraform.nodeExpandPlannableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_core (expand)" references: [google_bigquery_dataset.core (expand)]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.core (expand)" references: [var.region]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "var.project_id" references: []
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "var.bucket_name" references: []
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "output.gcs_bucket_url (expand)" references: [google_storage_bucket.nz_electricity (expand)]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/hashicorp/google\"]" references: [var.region var.project_id var.project_id]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "google_storage_bucket.nz_electricity (expand)" references: [var.bucket_name var.region]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.staging (expand)" references: [var.region]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.marts (expand)" references: [var.region]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "data.google_project.project (expand)" references: [var.project_id]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "google_billing_budget.alert (expand)" references: [var.billing_account data.google_project.project (expand)]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "var.region" references: []
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_staging (expand)" references: [google_bigquery_dataset.staging (expand)]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.raw (expand)" references: [var.region]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "var.billing_account" references: []
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_marts (expand)" references: [google_bigquery_dataset.marts (expand)]
+2026-03-18T16:03:52.184+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_raw (expand)" references: [google_bigquery_dataset.raw (expand)]
+2026-03-18T16:03:52.184+1300 [DEBUG] Starting graph walk: walkPlan
+2026-03-18T16:03:52.184+1300 [DEBUG] created provider logger: level=debug
+2026-03-18T16:03:52.184+1300 [INFO]  provider: configuring client automatic mTLS
+2026-03-18T16:03:52.186+1300 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5 args=[".terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5"]
+2026-03-18T16:03:52.188+1300 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5 pid=40248
+2026-03-18T16:03:52.188+1300 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:52.210+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5: configuring server automatic mTLS: timestamp="2026-03-18T16:03:52.210+1300"
+2026-03-18T16:03:52.214+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: plugin address: address=/var/folders/kw/rtpfp9xx5vj8h1n_95hjltnm0000gn/T/plugin3762132649 network=unix timestamp="2026-03-18T16:03:52.214+1300"
+2026-03-18T16:03:52.214+1300 [DEBUG] provider: using plugin: version=5
+2026-03-18T16:03:52.231+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5: Authenticating using DefaultClient...: @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1842 tf_mux_provider="*proto5server.Server" tf_req_id=0dfe0aad-9792-1ee2-d9d7-33e5694c3132 @module=google tf_provider_addr=registry.terraform.io/hashicorp/google tf_rpc=ConfigureProvider timestamp="2026-03-18T16:03:52.231+1300"
+2026-03-18T16:03:52.231+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5:   -- Scopes: [https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email]: @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1843 tf_mux_provider="*proto5server.Server" tf_provider_addr=registry.terraform.io/hashicorp/google tf_req_id=0dfe0aad-9792-1ee2-d9d7-33e5694c3132 tf_rpc=ConfigureProvider @module=google timestamp="2026-03-18T16:03:52.231+1300"
+2026-03-18T16:03:52.231+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5: Authenticating using DefaultClient...: @module=google tf_provider_addr=registry.terraform.io/hashicorp/google tf_req_id=0dfe0aad-9792-1ee2-d9d7-33e5694c3132 @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1842 tf_mux_provider="*proto5server.Server" tf_rpc=ConfigureProvider timestamp="2026-03-18T16:03:52.231+1300"
+2026-03-18T16:03:52.231+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5:   -- Scopes: [https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email]: @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1843 tf_provider_addr=registry.terraform.io/hashicorp/google tf_rpc=ConfigureProvider @module=google tf_mux_provider="*proto5server.Server" tf_req_id=0dfe0aad-9792-1ee2-d9d7-33e5694c3132 timestamp="2026-03-18T16:03:52.231+1300"
+2026-03-18T16:03:52.231+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:52 [DEBUG] Waiting for state to become: [success]
+2026-03-18T16:03:53.030+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5: Terraform is using this identity: abrir156fiona@gmail.com: @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1712 @module=google tf_provider_addr=registry.terraform.io/hashicorp/google tf_req_id=0dfe0aad-9792-1ee2-d9d7-33e5694c3132 tf_mux_provider="*proto5server.Server" tf_rpc=ConfigureProvider timestamp="2026-03-18T16:03:53.030+1300"
+2026-03-18T16:03:53.031+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [INFO] Authenticating using DefaultClient...
+2026-03-18T16:03:53.031+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [INFO]   -- Scopes: [https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email]
+2026-03-18T16:03:53.031+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [INFO] Authenticating using DefaultClient...
+2026-03-18T16:03:53.031+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [INFO]   -- Scopes: [https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email]
+2026-03-18T16:03:53.031+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Waiting for state to become: [success]
+2026-03-18T16:03:53.389+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [INFO] Terraform is using this identity: abrir156fiona@gmail.com
+2026-03-18T16:03:53.390+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] parent context canceled, cleaning up batcher batches
+2026-03-18T16:03:53.390+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Stopping batcher "Service Usage"
+2026-03-18T16:03:53.390+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] parent context canceled, cleaning up batcher batches
+2026-03-18T16:03:53.390+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Stopping batcher "IAM"
+2026-03-18T16:03:53.390+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.staging" references: []
+2026-03-18T16:03:53.390+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.raw" references: []
+2026-03-18T16:03:53.391+1300 [DEBUG] ReferenceTransformer: "google_storage_bucket.nz_electricity" references: []
+2026-03-18T16:03:53.392+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.marts" references: []
+2026-03-18T16:03:53.392+1300 [DEBUG] ReferenceTransformer: "data.google_project.project" references: []
+2026-03-18T16:03:53.395+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.core" references: []
+[0m[1mdata.google_project.project: Reading...[0m[0m
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Waiting for state to become: [success]
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [INFO] Instantiating Google Cloud ResourceManager client for path https://cloudresourcemanager.googleapis.com/
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: starting RoundTrip retry loop
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: request attempt 0
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Google API Request Details:
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ REQUEST ]---------------------------------------
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: GET /v1/projects/nz-electricity-generation?alt=json&prettyPrint=false HTTP/1.1
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Host: cloudresourcemanager.googleapis.com
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: User-Agent: google-api-go-client/0.5 Terraform/1.14.3 (+https://www.terraform.io) Terraform-Plugin-SDK/2.33.0 terraform-provider-google/5.45.2
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Goog-Api-Client: gl-go/1.21.13 gdcl/0.191.0
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Goog-User-Project: nz-electricity-generation
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Accept-Encoding: gzip
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.399+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+[0m[1mgoogle_storage_bucket.nz_electricity: Refreshing state... [id=nz-electricity-bucket-dezoomcamp-capstone][0m
+[0m[1mgoogle_bigquery_dataset.staging: Refreshing state... [id=projects/nz-electricity-generation/datasets/staging][0m
+[0m[1mgoogle_bigquery_dataset.raw: Refreshing state... [id=projects/nz-electricity-generation/datasets/raw][0m
+2026-03-18T16:03:53.402+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Waiting for state to become: [success]
+2026-03-18T16:03:53.402+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [INFO] Instantiating Google Storage client for path https://storage.googleapis.com/storage/v1/
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: starting RoundTrip retry loop
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: request attempt 0
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Google API Request Details:
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ REQUEST ]---------------------------------------
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: GET /storage/v1/b/nz-electricity-bucket-dezoomcamp-capstone?alt=json&prettyPrint=false HTTP/1.1
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Host: storage.googleapis.com
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: User-Agent: google-api-go-client/0.5 Terraform/1.14.3 (+https://www.terraform.io) Terraform-Plugin-SDK/2.33.0 terraform-provider-google/5.45.2
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Goog-Api-Client: gl-go/1.21.13 gdcl/0.191.0
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Goog-User-Project: nz-electricity-generation
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Accept-Encoding: gzip
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.403+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Waiting for state to become: [success]
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: starting RoundTrip retry loop
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: request attempt 0
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Google API Request Details:
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ REQUEST ]---------------------------------------
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: GET /bigquery/v2/projects/nz-electricity-generation/datasets/staging?alt=json HTTP/1.1
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Host: bigquery.googleapis.com
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: User-Agent: Terraform/1.14.3 (+https://www.terraform.io) Terraform-Plugin-SDK/2.33.0 terraform-provider-google/5.45.2
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Goog-User-Project: nz-electricity-generation
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Accept-Encoding: gzip
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Waiting for state to become: [success]
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: starting RoundTrip retry loop
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: request attempt 0
+[0m[1mgoogle_bigquery_dataset.marts: Refreshing state... [id=projects/nz-electricity-generation/datasets/marts][0m
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Google API Request Details:
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ REQUEST ]---------------------------------------
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: GET /bigquery/v2/projects/nz-electricity-generation/datasets/raw?alt=json HTTP/1.1
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Host: bigquery.googleapis.com
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: User-Agent: Terraform/1.14.3 (+https://www.terraform.io) Terraform-Plugin-SDK/2.33.0 terraform-provider-google/5.45.2
+[0m[1mgoogle_bigquery_dataset.core: Refreshing state... [id=projects/nz-electricity-generation/datasets/core][0m
+2026-03-18T16:03:53.404+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json
+2026-03-18T16:03:53.405+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Goog-User-Project: nz-electricity-generation
+2026-03-18T16:03:53.405+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Accept-Encoding: gzip
+2026-03-18T16:03:53.405+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.405+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.405+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Waiting for state to become: [success]
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: starting RoundTrip retry loop
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: request attempt 0
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Google API Request Details:
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ REQUEST ]---------------------------------------
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: GET /bigquery/v2/projects/nz-electricity-generation/datasets/marts?alt=json HTTP/1.1
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Host: bigquery.googleapis.com
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: User-Agent: Terraform/1.14.3 (+https://www.terraform.io) Terraform-Plugin-SDK/2.33.0 terraform-provider-google/5.45.2
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Goog-User-Project: nz-electricity-generation
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Accept-Encoding: gzip
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.406+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Waiting for state to become: [success]
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: starting RoundTrip retry loop
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: request attempt 0
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Google API Request Details:
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ REQUEST ]---------------------------------------
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: GET /bigquery/v2/projects/nz-electricity-generation/datasets/core?alt=json HTTP/1.1
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Host: bigquery.googleapis.com
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: User-Agent: Terraform/1.14.3 (+https://www.terraform.io) Terraform-Plugin-SDK/2.33.0 terraform-provider-google/5.45.2
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Goog-User-Project: nz-electricity-generation
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Accept-Encoding: gzip
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.407+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Google API Response Details:
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ RESPONSE ]--------------------------------------
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: HTTP/2.0 200 OK
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Length: 918
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Cache-Control: private, max-age=0, must-revalidate, no-transform
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json; charset=UTF-8
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Date: Wed, 18 Mar 2026 03:03:53 GMT
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Etag: CAE=
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Expires: Wed, 18 Mar 2026 03:03:53 GMT
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Server: UploadServer
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Origin
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: X-Origin
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Guploader-Uploadid: AGQBYWxj1qorKg1S3bid0AK31yWabjqjVn8dTw_pFljdnHy_8EaAEdnvDzDtsSwEHU_6m8L1
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: {
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "kind": "storage#bucket",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "selfLink": "https://www.googleapis.com/storage/v1/b/nz-electricity-bucket-dezoomcamp-capstone",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "id": "nz-electricity-bucket-dezoomcamp-capstone",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "name": "nz-electricity-bucket-dezoomcamp-capstone",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "projectNumber": "1041999099176",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "generation": "1773802610257506396",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "metageneration": "1",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "location": "AUSTRALIA-SOUTHEAST1",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "storageClass": "STANDARD",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "etag": "CAE=",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "timeCreated": "2026-03-18T02:56:50.909Z",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "updated": "2026-03-18T02:56:50.909Z",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "lifecycle": {
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "rule": [
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    {
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "action": {
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:      "type": "Delete"
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "condition": {
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:      "age": 365
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     }
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    }
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   ]
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  },
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "softDeletePolicy": {
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "retentionDurationSeconds": "604800",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "effectiveTime": "2026-03-18T02:56:50.909Z"
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  },
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "iamConfiguration": {
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "bucketPolicyOnly": {
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "enabled": true,
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "lockedTime": "2026-06-16T02:56:50.909Z"
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   },
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "uniformBucketLevelAccess": {
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "enabled": true,
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "lockedTime": "2026-06-16T02:56:50.909Z"
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   },
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "publicAccessPrevention": "inherited"
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  },
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "locationType": "region",
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "satisfiesPZS": true,
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "satisfiesPZI": true
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: }
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: Stopping retries, last request was successful
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Retry Transport: Returning after 1 attempts
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:53 [DEBUG] Read bucket nz-electricity-bucket-dezoomcamp-capstone at location https://www.googleapis.com/storage/v1/b/nz-electricity-bucket-dezoomcamp-capstone
+2026-03-18T16:03:53.949+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:53.959+1300 [WARN]  Provider "registry.terraform.io/hashicorp/google" produced an invalid plan for google_storage_bucket.nz_electricity, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .storage_class: planned value cty.StringVal("STANDARD") for a non-computed attribute
+      - .enable_object_retention: planned value cty.False for a non-computed attribute
+      - .labels: planned value cty.MapValEmpty(cty.String) for a non-computed attribute
+      - .default_event_based_hold: planned value cty.False for a non-computed attribute
+      - .requester_pays: planned value cty.False for a non-computed attribute
+      - .soft_delete_policy: block count in plan (1) disagrees with count in config (0)
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Google API Response Details:
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ RESPONSE ]--------------------------------------
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: HTTP/2.0 200 OK
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json; charset=UTF-8
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Date: Wed, 18 Mar 2026 03:03:53 GMT
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Server: ESF
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Server-Timing: gfet4t7; dur=234
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Origin
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: X-Origin
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Referer
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Content-Type-Options: nosniff
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Frame-Options: SAMEORIGIN
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Xss-Protection: 0
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: {
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "projectNumber": "1041999099176",
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "projectId": "nz-electricity-generation",
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "lifecycleState": "ACTIVE",
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "name": "nz-electricity-generation",
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "createTime": "2026-03-10T03:29:47.793801Z",
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "parent": {
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "type": "organization",
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "id": "901844715872"
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  }
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: }
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Retry Transport: Stopping retries, last request was successful
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Retry Transport: Returning after 1 attempts
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Waiting for state to become: [success]
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [INFO] Instantiating Google Cloud Billing client for path https://cloudbilling.googleapis.com/
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Retry Transport: starting RoundTrip retry loop
+2026-03-18T16:03:54.045+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Retry Transport: request attempt 0
+2026-03-18T16:03:54.046+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Google API Request Details:
+2026-03-18T16:03:54.046+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ REQUEST ]---------------------------------------
+2026-03-18T16:03:54.046+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: GET /v1/projects/nz-electricity-generation/billingInfo?alt=json&prettyPrint=false HTTP/1.1
+2026-03-18T16:03:54.046+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Host: cloudbilling.googleapis.com
+2026-03-18T16:03:54.046+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: User-Agent: google-api-go-client/0.5 Terraform/1.14.3 (+https://www.terraform.io) Terraform-Plugin-SDK/2.33.0 terraform-provider-google/5.45.2
+2026-03-18T16:03:54.046+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Goog-Api-Client: gl-go/1.21.13 gdcl/0.191.0
+2026-03-18T16:03:54.046+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Goog-User-Project: nz-electricity-generation
+2026-03-18T16:03:54.046+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Accept-Encoding: gzip
+2026-03-18T16:03:54.046+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:54.046+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:54.046+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:54.112+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Google API Response Details:
+2026-03-18T16:03:54.112+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ RESPONSE ]--------------------------------------
+2026-03-18T16:03:54.112+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: HTTP/2.0 200 OK
+2026-03-18T16:03:54.114+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+2026-03-18T16:03:54.114+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json; charset=UTF-8
+2026-03-18T16:03:54.114+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Date: Wed, 18 Mar 2026 03:03:54 GMT
+2026-03-18T16:03:54.114+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Etag: Fuuhcbv+PUvis3s3ysdf0g==
+2026-03-18T16:03:54.114+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Server: ESF
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Origin
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: X-Origin
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Referer
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Content-Type-Options: nosniff
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Frame-Options: SAMEORIGIN
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Xss-Protection: 0
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: {
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "kind": "bigquery#dataset",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "etag": "Fuuhcbv+PUvis3s3ysdf0g==",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "id": "nz-electricity-generation:raw",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/nz-electricity-generation/datasets/raw",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "datasetReference": {
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "datasetId": "raw",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "projectId": "nz-electricity-generation"
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   },
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "description": "Raw layer: external tables pointing to GCS CSVs",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "access": [
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "WRITER",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "specialGroup": "projectWriters"
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "OWNER",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "specialGroup": "projectOwners"
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "OWNER",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "userByEmail": "abrir156fiona@gmail.com"
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "READER",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "specialGroup": "projectReaders"
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     }
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   ],
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "creationTime": "1773802610469",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "lastModifiedTime": "1773802610469",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "location": "australia-southeast1",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "type": "DEFAULT",
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "maxTimeTravelHours": "168"
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: }
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Retry Transport: Stopping retries, last request was successful
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Retry Transport: Returning after 1 attempts
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Google API Response Details:
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ RESPONSE ]--------------------------------------
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: HTTP/2.0 200 OK
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json; charset=UTF-8
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Date: Wed, 18 Mar 2026 03:03:54 GMT
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Etag: f+8z7Prlw710J269r9PKgg==
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Server: ESF
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Origin
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: X-Origin
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Referer
+2026-03-18T16:03:54.115+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Content-Type-Options: nosniff
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Frame-Options: SAMEORIGIN
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Xss-Protection: 0
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: {
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "kind": "bigquery#dataset",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "etag": "f+8z7Prlw710J269r9PKgg==",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "id": "nz-electricity-generation:core",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/nz-electricity-generation/datasets/core",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "datasetReference": {
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "datasetId": "core",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "projectId": "nz-electricity-generation"
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   },
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "description": "Core layer: dim_plant and fct_generation",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "access": [
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "WRITER",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "specialGroup": "projectWriters"
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "OWNER",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "specialGroup": "projectOwners"
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "OWNER",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "userByEmail": "abrir156fiona@gmail.com"
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "READER",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "specialGroup": "projectReaders"
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     }
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   ],
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "creationTime": "1773802610467",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "lastModifiedTime": "1773802610467",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "location": "australia-southeast1",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "type": "DEFAULT",
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "maxTimeTravelHours": "168"
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: }
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Retry Transport: Stopping retries, last request was successful
+2026-03-18T16:03:54.116+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Retry Transport: Returning after 1 attempts
+2026-03-18T16:03:54.123+1300 [WARN]  Provider "registry.terraform.io/hashicorp/google" produced an invalid plan for google_bigquery_dataset.core, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .resource_tags: planned value cty.MapValEmpty(cty.String) for a non-computed attribute
+      - .default_partition_expiration_ms: planned value cty.NumberIntVal(0) for a non-computed attribute
+      - .default_table_expiration_ms: planned value cty.NumberIntVal(0) for a non-computed attribute
+      - .friendly_name: planned value cty.StringVal("") for a non-computed attribute
+      - .labels: planned value cty.MapValEmpty(cty.String) for a non-computed attribute
+      - .delete_contents_on_destroy: planned value cty.False for a non-computed attribute
+2026-03-18T16:03:54.124+1300 [WARN]  Provider "registry.terraform.io/hashicorp/google" produced an invalid plan for google_bigquery_dataset.raw, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .delete_contents_on_destroy: planned value cty.False for a non-computed attribute
+      - .resource_tags: planned value cty.MapValEmpty(cty.String) for a non-computed attribute
+      - .default_partition_expiration_ms: planned value cty.NumberIntVal(0) for a non-computed attribute
+      - .default_table_expiration_ms: planned value cty.NumberIntVal(0) for a non-computed attribute
+      - .friendly_name: planned value cty.StringVal("") for a non-computed attribute
+      - .labels: planned value cty.MapValEmpty(cty.String) for a non-computed attribute
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Google API Response Details:
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ RESPONSE ]--------------------------------------
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: HTTP/2.0 200 OK
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json; charset=UTF-8
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Date: Wed, 18 Mar 2026 03:03:54 GMT
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Etag: avIPjEf0jtGN9eGmApC51A==
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Server: ESF
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Origin
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: X-Origin
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Referer
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Content-Type-Options: nosniff
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Frame-Options: SAMEORIGIN
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Xss-Protection: 0
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:54.277+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: {
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "kind": "bigquery#dataset",
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "etag": "avIPjEf0jtGN9eGmApC51A==",
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "id": "nz-electricity-generation:staging",
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/nz-electricity-generation/datasets/staging",
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "datasetReference": {
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "datasetId": "staging",
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "projectId": "nz-electricity-generation"
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   },
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "description": "Staging layer: unpivoted and standardised generation data",
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "access": [
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "WRITER",
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "specialGroup": "projectWriters"
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "OWNER",
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "specialGroup": "projectOwners"
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "OWNER",
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "userByEmail": "abrir156fiona@gmail.com"
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.278+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "READER",
+2026-03-18T16:03:54.279+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "specialGroup": "projectReaders"
+2026-03-18T16:03:54.279+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     }
+2026-03-18T16:03:54.279+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   ],
+2026-03-18T16:03:54.279+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "creationTime": "1773802610463",
+2026-03-18T16:03:54.279+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "lastModifiedTime": "1773802610463",
+2026-03-18T16:03:54.279+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "location": "australia-southeast1",
+2026-03-18T16:03:54.279+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "type": "DEFAULT",
+2026-03-18T16:03:54.279+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "maxTimeTravelHours": "168"
+2026-03-18T16:03:54.279+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: }
+2026-03-18T16:03:54.279+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:54.279+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Retry Transport: Stopping retries, last request was successful
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Retry Transport: Returning after 1 attempts
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Google API Response Details:
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ RESPONSE ]--------------------------------------
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: HTTP/2.0 200 OK
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json; charset=UTF-8
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Date: Wed, 18 Mar 2026 03:03:54 GMT
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Etag: +3o0LaO8RsK6zun0J2V6Gg==
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Server: ESF
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Origin
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: X-Origin
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Referer
+2026-03-18T16:03:54.280+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Content-Type-Options: nosniff
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Frame-Options: SAMEORIGIN
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Xss-Protection: 0
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: {
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "kind": "bigquery#dataset",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "etag": "+3o0LaO8RsK6zun0J2V6Gg==",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "id": "nz-electricity-generation:marts",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/nz-electricity-generation/datasets/marts",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "datasetReference": {
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "datasetId": "marts",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "projectId": "nz-electricity-generation"
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   },
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "description": "Mart layer: aggregated tables for Looker Studio",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "access": [
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "WRITER",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "specialGroup": "projectWriters"
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "OWNER",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "specialGroup": "projectOwners"
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "OWNER",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "userByEmail": "abrir156fiona@gmail.com"
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     {
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "role": "READER",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "specialGroup": "projectReaders"
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     }
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   ],
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "creationTime": "1773802610465",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "lastModifiedTime": "1773802610465",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "location": "australia-southeast1",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "type": "DEFAULT",
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "maxTimeTravelHours": "168"
+2026-03-18T16:03:54.281+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: }
+2026-03-18T16:03:54.282+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:54.282+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:54.282+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Retry Transport: Stopping retries, last request was successful
+2026-03-18T16:03:54.282+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:54 [DEBUG] Retry Transport: Returning after 1 attempts
+2026-03-18T16:03:54.296+1300 [WARN]  Provider "registry.terraform.io/hashicorp/google" produced an invalid plan for google_bigquery_dataset.staging, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .default_table_expiration_ms: planned value cty.NumberIntVal(0) for a non-computed attribute
+      - .friendly_name: planned value cty.StringVal("") for a non-computed attribute
+      - .labels: planned value cty.MapValEmpty(cty.String) for a non-computed attribute
+      - .delete_contents_on_destroy: planned value cty.False for a non-computed attribute
+      - .resource_tags: planned value cty.MapValEmpty(cty.String) for a non-computed attribute
+      - .default_partition_expiration_ms: planned value cty.NumberIntVal(0) for a non-computed attribute
+2026-03-18T16:03:54.296+1300 [WARN]  Provider "registry.terraform.io/hashicorp/google" produced an invalid plan for google_bigquery_dataset.marts, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .resource_tags: planned value cty.MapValEmpty(cty.String) for a non-computed attribute
+      - .default_partition_expiration_ms: planned value cty.NumberIntVal(0) for a non-computed attribute
+      - .default_table_expiration_ms: planned value cty.NumberIntVal(0) for a non-computed attribute
+      - .friendly_name: planned value cty.StringVal("") for a non-computed attribute
+      - .labels: planned value cty.MapValEmpty(cty.String) for a non-computed attribute
+      - .delete_contents_on_destroy: planned value cty.False for a non-computed attribute
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:55 [DEBUG] Google API Response Details:
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ RESPONSE ]--------------------------------------
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: HTTP/2.0 403 Forbidden
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json; charset=UTF-8
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Date: Wed, 18 Mar 2026 03:03:55 GMT
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Server: ESF
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Origin
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: X-Origin
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Referer
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Content-Type-Options: nosniff
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Frame-Options: SAMEORIGIN
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Xss-Protection: 0
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: {
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "error": {
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "code": 403,
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "message": "Cloud Billing API has not been used in project nz-electricity-generation before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.",
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "errors": [
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       {
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "message": "Cloud Billing API has not been used in project nz-electricity-generation before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.",
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "domain": "usageLimits",
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "reason": "accessNotConfigured",
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "extendedHelp": "https://console.developers.google.com"
+2026-03-18T16:03:55.711+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       }
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     ],
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "status": "PERMISSION_DENIED",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "details": [
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "reason": "SERVICE_DISABLED",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "domain": "googleapis.com",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "metadata": {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           "containerInfo": "nz-electricity-generation",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           "service": "cloudbilling.googleapis.com",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           "consumer": "projects/nz-electricity-generation",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           "activationUrl": "https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           "serviceTitle": "Cloud Billing API"
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         }
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       },
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "locale": "en-US",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "message": "Cloud Billing API has not been used in project nz-electricity-generation before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       },
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "@type": "type.googleapis.com/google.rpc.Help",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "links": [
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:             "description": "Google developers console API activation",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:             "url": "https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation"
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           }
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         ]
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       }
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     ]
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   }
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: }
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:55 [DEBUG] Retry Transport: Stopping retries, last request failed with non-retryable error: googleapi: got HTTP response code 403 with body: HTTP/2.0 403 Forbidden
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json; charset=UTF-8
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Date: Wed, 18 Mar 2026 03:03:55 GMT
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Server: ESF
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Origin
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: X-Origin
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Referer
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Content-Type-Options: nosniff
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Frame-Options: SAMEORIGIN
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Xss-Protection: 0
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "error": {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "code": 403,
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "message": "Cloud Billing API has not been used in project nz-electricity-generation before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "errors": [
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "message": "Cloud Billing API has not been used in project nz-electricity-generation before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "domain": "usageLimits",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "reason": "accessNotConfigured",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "extendedHelp": "https://console.developers.google.com"
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       }
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     ],
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "status": "PERMISSION_DENIED",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "details": [
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "reason": "SERVICE_DISABLED",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "domain": "googleapis.com",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "metadata": {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           "containerInfo": "nz-electricity-generation",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           "service": "cloudbilling.googleapis.com",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           "consumer": "projects/nz-electricity-generation",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           "activationUrl": "https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           "serviceTitle": "Cloud Billing API"
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         }
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       },
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "locale": "en-US",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "message": "Cloud Billing API has not been used in project nz-electricity-generation before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       },
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "@type": "type.googleapis.com/google.rpc.Help",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "links": [
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:             "description": "Google developers console API activation",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:             "url": "https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation"
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:           }
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         ]
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       }
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     ]
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   }
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: }
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:55 [DEBUG] Retry Transport: Returning after 1 attempts
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:55 [WARN] Billing info API not enabled, please enable it to read billing info about project "nz-electricity-generation": googleapi: Error 403: Cloud Billing API has not been used in project nz-electricity-generation before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Details:
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: [
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "domain": "googleapis.com",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "metadata": {
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "activationUrl": "https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "consumer": "projects/nz-electricity-generation",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "containerInfo": "nz-electricity-generation",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "service": "cloudbilling.googleapis.com",
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       "serviceTitle": "Cloud Billing API"
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     },
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "reason": "SERVICE_DISABLED"
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   },
+2026-03-18T16:03:55.712+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   {
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "locale": "en-US",
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "message": "Cloud Billing API has not been used in project nz-electricity-generation before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   },
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   {
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "@type": "type.googleapis.com/google.rpc.Help",
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "links": [
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       {
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "description": "Google developers console API activation",
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:         "url": "https://console.developers.google.com/apis/api/cloudbilling.googleapis.com/overview?project=nz-electricity-generation"
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:       }
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     ]
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   }
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ]
+2026-03-18T16:03:55.713+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: , accessNotConfigured
+[0m[1mdata.google_project.project: Read complete after 3s [id=projects/nz-electricity-generation][0m
+2026-03-18T16:03:55.713+1300 [DEBUG] Resource instance state not found for node "google_billing_budget.alert", instance google_billing_budget.alert
+2026-03-18T16:03:55.713+1300 [DEBUG] ReferenceTransformer: "google_billing_budget.alert" references: []
+2026-03-18T16:03:55.714+1300 [DEBUG] refresh: google_billing_budget.alert: no state, so not refreshing
+2026-03-18T16:03:55.718+1300 [WARN]  Provider "registry.terraform.io/hashicorp/google" produced an invalid plan for google_billing_budget.alert, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .budget_filter[0].credit_types_treatment: planned value cty.StringVal("INCLUDE_ALL_CREDITS") for a non-computed attribute
+      - .threshold_rules[0].spend_basis: planned value cty.StringVal("CURRENT_SPEND") for a non-computed attribute
+      - .threshold_rules[1].spend_basis: planned value cty.StringVal("CURRENT_SPEND") for a non-computed attribute
+      - .threshold_rules[2].spend_basis: planned value cty.StringVal("CURRENT_SPEND") for a non-computed attribute
+2026-03-18T16:03:55.719+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:55 [DEBUG] [transport] [server-transport 0x140001b4300] Closing: Server.Stop called 
+2026-03-18T16:03:55.719+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:55 [DEBUG] [transport] [server-transport 0x140001b4300] loopyWriter exiting with error: transport closed by client 
+2026-03-18T16:03:55.719+1300 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2026-03-18T16:03:55.722+1300 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5 id=40248
+2026-03-18T16:03:55.726+1300 [DEBUG] provider: plugin exited
+2026-03-18T16:03:55.730+1300 [DEBUG] building apply graph to check for errors
+2026-03-18T16:03:55.730+1300 [DEBUG] Resource state not found for node "google_billing_budget.alert", instance google_billing_budget.alert
+2026-03-18T16:03:55.730+1300 [DEBUG] ProviderTransformer: "google_billing_budget.alert" (*terraform.NodeApplyableResourceInstance) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.730+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.staging (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.730+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.marts (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.730+1300 [DEBUG] ProviderTransformer: "google_billing_budget.alert (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.730+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.raw (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.730+1300 [DEBUG] ProviderTransformer: "google_storage_bucket.nz_electricity (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.730+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.core (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.730+1300 [DEBUG] ProviderTransformer: "data.google_project.project (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.730+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.marts (expand)" references: [var.region]
+2026-03-18T16:03:55.730+1300 [DEBUG] ReferenceTransformer: "var.bucket_name" references: []
+2026-03-18T16:03:55.730+1300 [DEBUG] ReferenceTransformer: "var.billing_account" references: []
+2026-03-18T16:03:55.730+1300 [DEBUG] ReferenceTransformer: "google_billing_budget.alert (expand)" references: [var.billing_account data.google_project.project (expand)]
+2026-03-18T16:03:55.730+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.raw (expand)" references: [var.region]
+2026-03-18T16:03:55.730+1300 [DEBUG] ReferenceTransformer: "var.project_id" references: []
+2026-03-18T16:03:55.730+1300 [DEBUG] ReferenceTransformer: "output.gcs_bucket_url (expand)" references: [google_storage_bucket.nz_electricity (expand)]
+2026-03-18T16:03:55.730+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_raw (expand)" references: [google_bigquery_dataset.raw (expand)]
+2026-03-18T16:03:55.731+1300 [DEBUG] ReferenceTransformer: "google_storage_bucket.nz_electricity (expand)" references: [var.region var.bucket_name]
+2026-03-18T16:03:55.731+1300 [DEBUG] ReferenceTransformer: "var.region" references: []
+2026-03-18T16:03:55.731+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_staging (expand)" references: [google_bigquery_dataset.staging (expand)]
+2026-03-18T16:03:55.731+1300 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/hashicorp/google\"]" references: [var.project_id var.region var.project_id]
+2026-03-18T16:03:55.731+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.core (expand)" references: [var.region]
+2026-03-18T16:03:55.731+1300 [DEBUG] ReferenceTransformer: "data.google_project.project (expand)" references: [var.project_id]
+2026-03-18T16:03:55.731+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_core (expand)" references: [google_bigquery_dataset.core (expand)]
+2026-03-18T16:03:55.731+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_marts (expand)" references: [google_bigquery_dataset.marts (expand)]
+2026-03-18T16:03:55.731+1300 [DEBUG] ReferenceTransformer: "google_billing_budget.alert" references: [var.billing_account data.google_project.project (expand)]
+2026-03-18T16:03:55.731+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.staging (expand)" references: [var.region]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # google_billing_budget.alert[0m will be created
+[0m  [32m+[0m[0m resource "google_billing_budget" "alert" {
+      [32m+[0m[0m billing_account = "0134B0-CFBE02-3CE9E5"
+      [32m+[0m[0m display_name    = "nz-electricity-budget"
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = (known after apply)
+
+      [32m+[0m[0m amount {
+          [32m+[0m[0m specified_amount {
+              [32m+[0m[0m currency_code = "USD"
+              [32m+[0m[0m units         = "10"
+            }
+        }
+
+      [32m+[0m[0m budget_filter {
+          [32m+[0m[0m credit_types           = (known after apply)
+          [32m+[0m[0m credit_types_treatment = "INCLUDE_ALL_CREDITS"
+          [32m+[0m[0m labels                 = (known after apply)
+          [32m+[0m[0m projects               = [
+              [32m+[0m[0m "projects/1041999099176",
+            ]
+          [32m+[0m[0m services               = (known after apply)
+          [32m+[0m[0m subaccounts            = (known after apply)
+        }
+
+      [32m+[0m[0m threshold_rules {
+          [32m+[0m[0m spend_basis       = "CURRENT_SPEND"
+          [32m+[0m[0m threshold_percent = 0.5
+        }
+      [32m+[0m[0m threshold_rules {
+          [32m+[0m[0m spend_basis       = "CURRENT_SPEND"
+          [32m+[0m[0m threshold_percent = 0.9
+        }
+      [32m+[0m[0m threshold_rules {
+          [32m+[0m[0m spend_basis       = "CURRENT_SPEND"
+          [32m+[0m[0m threshold_percent = 1
+        }
+    }
+
+[1mPlan:[0m [0m1 to add, 0 to change, 0 to destroy.
+2026-03-18T16:03:55.742+1300 [INFO]  backend/local: apply calling Apply
+2026-03-18T16:03:55.742+1300 [DEBUG] Building and walking apply graph for NormalMode plan
+2026-03-18T16:03:55.742+1300 [DEBUG] Resource state not found for node "google_billing_budget.alert", instance google_billing_budget.alert
+2026-03-18T16:03:55.742+1300 [DEBUG] ProviderTransformer: "google_storage_bucket.nz_electricity (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.742+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.raw (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.742+1300 [DEBUG] ProviderTransformer: "data.google_project.project (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.742+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.core (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.742+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.marts (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.742+1300 [DEBUG] ProviderTransformer: "google_billing_budget.alert (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.742+1300 [DEBUG] ProviderTransformer: "google_bigquery_dataset.staging (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.742+1300 [DEBUG] ProviderTransformer: "google_billing_budget.alert" (*terraform.NodeApplyableResourceInstance) needs provider["registry.terraform.io/hashicorp/google"]
+2026-03-18T16:03:55.742+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.core (expand)" references: [var.region]
+2026-03-18T16:03:55.742+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.marts (expand)" references: [var.region]
+2026-03-18T16:03:55.742+1300 [DEBUG] ReferenceTransformer: "google_billing_budget.alert (expand)" references: [var.billing_account data.google_project.project (expand)]
+2026-03-18T16:03:55.742+1300 [DEBUG] ReferenceTransformer: "var.bucket_name" references: []
+2026-03-18T16:03:55.742+1300 [DEBUG] ReferenceTransformer: "var.billing_account" references: []
+2026-03-18T16:03:55.742+1300 [DEBUG] ReferenceTransformer: "var.region" references: []
+2026-03-18T16:03:55.742+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_staging (expand)" references: [google_bigquery_dataset.staging (expand)]
+2026-03-18T16:03:55.742+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_core (expand)" references: [google_bigquery_dataset.core (expand)]
+2026-03-18T16:03:55.742+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_marts (expand)" references: [google_bigquery_dataset.marts (expand)]
+2026-03-18T16:03:55.743+1300 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/hashicorp/google\"]" references: [var.project_id var.region var.project_id]
+2026-03-18T16:03:55.743+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.staging (expand)" references: [var.region]
+2026-03-18T16:03:55.743+1300 [DEBUG] ReferenceTransformer: "google_billing_budget.alert" references: [var.billing_account data.google_project.project (expand)]
+2026-03-18T16:03:55.743+1300 [DEBUG] ReferenceTransformer: "google_storage_bucket.nz_electricity (expand)" references: [var.bucket_name var.region]
+2026-03-18T16:03:55.743+1300 [DEBUG] ReferenceTransformer: "google_bigquery_dataset.raw (expand)" references: [var.region]
+2026-03-18T16:03:55.743+1300 [DEBUG] ReferenceTransformer: "data.google_project.project (expand)" references: [var.project_id]
+2026-03-18T16:03:55.743+1300 [DEBUG] ReferenceTransformer: "var.project_id" references: []
+2026-03-18T16:03:55.743+1300 [DEBUG] ReferenceTransformer: "output.gcs_bucket_url (expand)" references: [google_storage_bucket.nz_electricity (expand)]
+2026-03-18T16:03:55.743+1300 [DEBUG] ReferenceTransformer: "output.bq_dataset_raw (expand)" references: [google_bigquery_dataset.raw (expand)]
+2026-03-18T16:03:55.743+1300 [DEBUG] Starting graph walk: walkApply
+2026-03-18T16:03:55.744+1300 [DEBUG] created provider logger: level=debug
+2026-03-18T16:03:55.744+1300 [INFO]  provider: configuring client automatic mTLS
+2026-03-18T16:03:55.747+1300 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5 args=[".terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5"]
+2026-03-18T16:03:55.750+1300 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5 pid=40257
+2026-03-18T16:03:55.750+1300 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:55.775+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5: configuring server automatic mTLS: timestamp="2026-03-18T16:03:55.775+1300"
+2026-03-18T16:03:55.780+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: plugin address: address=/var/folders/kw/rtpfp9xx5vj8h1n_95hjltnm0000gn/T/plugin2319181714 network=unix timestamp="2026-03-18T16:03:55.780+1300"
+2026-03-18T16:03:55.780+1300 [DEBUG] provider: using plugin: version=5
+2026-03-18T16:03:55.799+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5: Authenticating using DefaultClient...: @module=google tf_mux_provider="*proto5server.Server" tf_req_id=07164c9e-62f0-b756-54df-89d77862ff63 @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1842 tf_provider_addr=registry.terraform.io/hashicorp/google tf_rpc=ConfigureProvider timestamp="2026-03-18T16:03:55.799+1300"
+2026-03-18T16:03:55.799+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5:   -- Scopes: [https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email]: @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1843 @module=google tf_mux_provider="*proto5server.Server" tf_provider_addr=registry.terraform.io/hashicorp/google tf_req_id=07164c9e-62f0-b756-54df-89d77862ff63 tf_rpc=ConfigureProvider timestamp="2026-03-18T16:03:55.799+1300"
+2026-03-18T16:03:55.799+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5: Authenticating using DefaultClient...: tf_provider_addr=registry.terraform.io/hashicorp/google tf_req_id=07164c9e-62f0-b756-54df-89d77862ff63 tf_rpc=ConfigureProvider @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1842 @module=google tf_mux_provider="*proto5server.Server" timestamp="2026-03-18T16:03:55.799+1300"
+2026-03-18T16:03:55.799+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5:   -- Scopes: [https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email]: @module=google tf_req_id=07164c9e-62f0-b756-54df-89d77862ff63 tf_rpc=ConfigureProvider @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1843 tf_mux_provider="*proto5server.Server" tf_provider_addr=registry.terraform.io/hashicorp/google timestamp="2026-03-18T16:03:55.799+1300"
+2026-03-18T16:03:55.799+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:55 [DEBUG] Waiting for state to become: [success]
+2026-03-18T16:03:56.656+1300 [INFO]  provider.terraform-provider-google_v5.45.2_x5: Terraform is using this identity: abrir156fiona@gmail.com: @caller=github.com/hashicorp/terraform-provider-google/google/fwtransport/framework_config.go:1712 @module=google tf_provider_addr=registry.terraform.io/hashicorp/google tf_req_id=07164c9e-62f0-b756-54df-89d77862ff63 tf_rpc=ConfigureProvider tf_mux_provider="*proto5server.Server" timestamp="2026-03-18T16:03:56.656+1300"
+2026-03-18T16:03:56.658+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:56 [INFO] Authenticating using DefaultClient...
+2026-03-18T16:03:56.658+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:56 [INFO]   -- Scopes: [https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email]
+2026-03-18T16:03:56.658+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:56 [INFO] Authenticating using DefaultClient...
+2026-03-18T16:03:56.658+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:56 [INFO]   -- Scopes: [https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email]
+2026-03-18T16:03:56.658+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:56 [DEBUG] Waiting for state to become: [success]
+2026-03-18T16:03:57.058+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [INFO] Terraform is using this identity: abrir156fiona@gmail.com
+2026-03-18T16:03:57.058+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] parent context canceled, cleaning up batcher batches
+2026-03-18T16:03:57.059+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] Stopping batcher "Service Usage"
+2026-03-18T16:03:57.059+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] parent context canceled, cleaning up batcher batches
+2026-03-18T16:03:57.059+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] Stopping batcher "IAM"
+2026-03-18T16:03:57.067+1300 [WARN]  Provider "registry.terraform.io/hashicorp/google" produced an invalid plan for google_billing_budget.alert, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .threshold_rules[0].spend_basis: planned value cty.StringVal("CURRENT_SPEND") for a non-computed attribute
+      - .threshold_rules[1].spend_basis: planned value cty.StringVal("CURRENT_SPEND") for a non-computed attribute
+      - .threshold_rules[2].spend_basis: planned value cty.StringVal("CURRENT_SPEND") for a non-computed attribute
+      - .budget_filter[0].credit_types_treatment: planned value cty.StringVal("INCLUDE_ALL_CREDITS") for a non-computed attribute
+[0m[1mgoogle_billing_budget.alert: Creating...[0m[0m
+2026-03-18T16:03:57.067+1300 [INFO]  Starting apply for google_billing_budget.alert
+2026-03-18T16:03:57.068+1300 [DEBUG] google_billing_budget.alert: applying the planned Create change
+2026-03-18T16:03:57.069+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] setting computed for "budget_filter.0.credit_types" from ComputedKeys
+2026-03-18T16:03:57.069+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] setting computed for "budget_filter.0.services" from ComputedKeys
+2026-03-18T16:03:57.069+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] setting computed for "budget_filter.0.labels" from ComputedKeys
+2026-03-18T16:03:57.069+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] setting computed for "budget_filter.0.subaccounts" from ComputedKeys
+2026-03-18T16:03:57.069+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] setting computed for "budget_filter.0.labels" from ComputedKeys
+2026-03-18T16:03:57.069+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] setting computed for "budget_filter.0.subaccounts" from ComputedKeys
+2026-03-18T16:03:57.069+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] setting computed for "budget_filter.0.credit_types" from ComputedKeys
+2026-03-18T16:03:57.069+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] setting computed for "budget_filter.0.services" from ComputedKeys
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] Creating new Budget: map[string]interface {}{"amount":map[string]interface {}{"specifiedAmount":map[string]interface {}{"currencyCode":"USD", "units":"10"}}, "budgetFilter":map[string]interface {}{"creditTypesTreatment":"INCLUDE_ALL_CREDITS", "projects":[]interface {}{"projects/1041999099176"}}, "displayName":"nz-electricity-budget", "thresholdRules":[]interface {}{map[string]interface {}{"spendBasis":"CURRENT_SPEND", "thresholdPercent":0.5}, map[string]interface {}{"spendBasis":"CURRENT_SPEND", "thresholdPercent":0.9}, map[string]interface {}{"spendBasis":"CURRENT_SPEND", "thresholdPercent":1}}}
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] Waiting for state to become: [success]
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] Retry Transport: starting RoundTrip retry loop
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] Retry Transport: request attempt 0
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:57 [DEBUG] Google API Request Details:
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ REQUEST ]---------------------------------------
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: POST /v1/billingAccounts/0134B0-CFBE02-3CE9E5/budgets?alt=json HTTP/1.1
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Host: billingbudgets.googleapis.com
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: User-Agent: Terraform/1.14.3 (+https://www.terraform.io) Terraform-Plugin-SDK/2.33.0 terraform-provider-google/5.45.2
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Length: 384
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Goog-User-Project: nz-electricity-generation
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Accept-Encoding: gzip
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: {
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "amount": {
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "specifiedAmount": {
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "currencyCode": "USD",
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "units": "10"
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   }
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  },
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "budgetFilter": {
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "creditTypesTreatment": "INCLUDE_ALL_CREDITS",
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "projects": [
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "projects/1041999099176"
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   ]
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  },
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "displayName": "nz-electricity-budget",
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  "thresholdRules": [
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   {
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "spendBasis": "CURRENT_SPEND",
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "thresholdPercent": 0.5
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   },
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   {
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "spendBasis": "CURRENT_SPEND",
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "thresholdPercent": 0.9
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   },
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   {
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "spendBasis": "CURRENT_SPEND",
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:    "thresholdPercent": 1
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   }
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:  ]
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: }
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:57.070+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:58.722+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:58 [DEBUG] Google API Response Details:
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: ---[ RESPONSE ]--------------------------------------
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: HTTP/2.0 400 Bad Request
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json; charset=UTF-8
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Date: Wed, 18 Mar 2026 03:03:58 GMT
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Server: ESF
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Origin
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: X-Origin
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Referer
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Content-Type-Options: nosniff
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Frame-Options: SAMEORIGIN
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Xss-Protection: 0
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: {
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "error": {
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "code": 400,
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "message": "Request contains an invalid argument.",
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "status": "INVALID_ARGUMENT"
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   }
+2026-03-18T16:03:58.723+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: }
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: -----------------------------------------------------
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:58 [DEBUG] Retry Transport: Stopping retries, last request failed with non-retryable error: googleapi: got HTTP response code 400 with body: HTTP/2.0 400 Bad Request
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Content-Type: application/json; charset=UTF-8
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Date: Wed, 18 Mar 2026 03:03:58 GMT
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Server: ESF
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Origin
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: X-Origin
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: Vary: Referer
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Content-Type-Options: nosniff
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Frame-Options: SAMEORIGIN
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: X-Xss-Protection: 0
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: {
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   "error": {
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "code": 400,
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "message": "Request contains an invalid argument.",
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:     "status": "INVALID_ARGUMENT"
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5:   }
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: }
+2026-03-18T16:03:58.724+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:58 [DEBUG] Retry Transport: Returning after 1 attempts
+2026-03-18T16:03:58.724+1300 [ERROR] provider.terraform-provider-google_v5.45.2_x5: Response contains error diagnostic: tf_provider_addr=registry.terraform.io/hashicorp/google diagnostic_detail="" diagnostic_summary="Error creating Budget: googleapi: Error 400: Request contains an invalid argument." tf_req_id=6e1d5275-01b8-38dc-c307-c61732e98a32 tf_resource_type=google_billing_budget tf_rpc=ApplyResourceChange @caller=github.com/hashicorp/terraform-plugin-go@v0.23.0/tfprotov5/internal/diag/diagnostics.go:58 @module=sdk.proto diagnostic_severity=ERROR tf_proto_version=5.6 timestamp="2026-03-18T16:03:58.723+1300"
+2026-03-18T16:03:58.731+1300 [DEBUG] State storage *statemgr.Filesystem declined to persist a state snapshot
+2026-03-18T16:03:58.731+1300 [ERROR] vertex "google_billing_budget.alert" error: Error creating Budget: googleapi: Error 400: Request contains an invalid argument.
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mError creating Budget: googleapi: Error 400: Request contains an invalid argument.[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  with google_billing_budget.alert,
+[31m│[0m [0m  on main.tf line 65, in resource "google_billing_budget" "alert":
+[31m│[0m [0m  65: resource "google_billing_budget" "alert" [4m{[0m[0m
+[31m│[0m [0m
+[31m╵[0m[0m
+2026-03-18T16:03:58.741+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:58 [DEBUG] [transport] [server-transport 0x1400051f500] Closing: Server.Stop called 
+2026-03-18T16:03:58.741+1300 [DEBUG] provider.terraform-provider-google_v5.45.2_x5: 2026/03/18 16:03:58 [DEBUG] [transport] [server-transport 0x1400051f500] loopyWriter exiting with error: transport closed by client 
+2026-03-18T16:03:58.741+1300 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2026-03-18T16:03:58.747+1300 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/google/5.45.2/darwin_arm64/terraform-provider-google_v5.45.2_x5 id=40257
+2026-03-18T16:03:58.751+1300 [DEBUG] provider: plugin exited
