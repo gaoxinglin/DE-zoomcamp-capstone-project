@@ -7,4 +7,14 @@ materialization:
   type: table
 @bruin */
 
--- TODO: monthly plant ranking by generation volume
+SELECT
+  trading_month,
+  site_code,
+  fuel_type,
+  SUM(generation_kwh)                                AS total_kwh,
+  RANK() OVER (
+    PARTITION BY trading_month
+    ORDER BY SUM(generation_kwh) DESC
+  )                                                  AS monthly_rank
+FROM core.fct_generation
+GROUP BY 1, 2, 3
