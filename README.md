@@ -9,7 +9,7 @@
 
 An end-to-end **batch data pipeline** built with [Bruin](https://bruin-data.github.io/bruin/) that ingests monthly NZ electricity generation data from the Electricity Authority (EMI), unpivots wide-format CSVs in BigQuery, models generation trends by fuel type, and visualises New Zealand's energy transition in Looker Studio.
 
-**Data coverage:** Jan 2018 – Feb 2026 · **97 monthly files** · **11M+ rows**
+**Data coverage:** Jan 2018 – Feb 2026 · **98 monthly files** · **11M+ rows**
 
 ---
 
@@ -49,15 +49,15 @@ An end-to-end **batch data pipeline** built with [Bruin](https://bruin-data.gith
 
 ## Tech Stack
 
-| Layer | Tool |
-|---|---|
-| Infrastructure | Terraform (GCS bucket + 4 BQ datasets + billing budget) |
-| Ingestion | Bruin Python asset (`requests` + `google-cloud-storage`) |
-| Storage | Google Cloud Storage (CSV files) + BigQuery External Table |
-| Transformation | Bruin SQL assets (BigQuery UNPIVOT, window functions, MD5 keys) |
+| Layer          | Tool                                                                                                 |
+| -------------- | ---------------------------------------------------------------------------------------------------- |
+| Infrastructure | Terraform (GCS bucket + 4 BQ datasets + billing budget)                                              |
+| Ingestion      | Bruin Python asset (`requests` + `google-cloud-storage`)                                             |
+| Storage        | Google Cloud Storage (CSV files) + BigQuery External Table                                           |
+| Transformation | Bruin SQL assets (BigQuery UNPIVOT, window functions, MD5 keys)                                      |
 | Quality Checks | Bruin built-in checks (not_null, unique, non_negative, accepted_values, min/max) + custom SQL checks |
-| Orchestration | Bruin pipeline (`schedule: @monthly`) |
-| Visualisation | Looker Studio (native BigQuery connector) |
+| Orchestration  | Bruin pipeline (`schedule: @monthly`)                                                                |
+| Visualisation  | Looker Studio (native BigQuery connector)                                                            |
 
 ### Why Bruin?
 
@@ -76,13 +76,13 @@ No Docker Compose. No separate profile files. No extra package installations.
 
 ## Data Source
 
-| Field | Value |
-|---|---|
-| Source | [EMI — Electricity Authority NZ](https://www.emi.ea.govt.nz/Wholesale/Datasets/Generation/Generation_MD) |
-| Format | CSV (wide format, 57 columns: Site_Code, Gen_Code, Fuel_Code, Trading_Date, TP1–TP50) |
-| Update frequency | Monthly (published ~10th of following month) |
-| Coverage | Jan 2018 – present |
-| Key challenge | TP1–TP50 columns require UNPIVOT; Fuel_Code values are non-standard and need mapping |
+| Field            | Value                                                                                                    |
+| ---------------- | -------------------------------------------------------------------------------------------------------- |
+| Source           | [EMI — Electricity Authority NZ](https://www.emi.ea.govt.nz/Wholesale/Datasets/Generation/Generation_MD) |
+| Format           | CSV (wide format, 57 columns: Site_Code, Gen_Code, Fuel_Code, Trading_Date, TP1–TP50)                    |
+| Update frequency | Monthly (published ~10th of following month)                                                             |
+| Coverage         | Jan 2018 – present                                                                                       |
+| Key challenge    | TP1–TP50 columns require UNPIVOT; Fuel_Code values are non-standard and need mapping                     |
 
 ---
 
@@ -125,11 +125,11 @@ No Docker Compose. No separate profile files. No extra package installations.
 
 Bruin's built-in quality checks run automatically after each asset materialises:
 
-| Asset | Checks |
-|---|---|
+| Asset            | Checks                                                                                                                                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `stg_generation` | `not_null` (trading_date, gen_code, fuel_type, generation_kwh) · `min/max` (trading_period: 1–50) · `accepted_values` (9 fuel types) · `non_negative` (generation_kwh) · custom row count ≥ 1000 |
-| `fct_generation` | `not_null + unique` (generation_id) · `non_negative` (generation_kwh) |
-| `dim_plant` | `not_null + unique` (gen_code) · `not_null` (site_code, fuel_type) |
+| `fct_generation` | `not_null + unique` (generation_id) · `non_negative` (generation_kwh)                                                                                                                            |
+| `dim_plant`      | `not_null + unique` (gen_code) · `not_null` (site_code, fuel_type)                                                                                                                               |
 
 **Total: 17 quality checks** across the pipeline, all passing on full dataset.
 
@@ -203,12 +203,12 @@ marts.mart_seasonal_pattern    ←── core.fct_generation
 
 ## Zoomcamp Evaluation Criteria
 
-| Dimension | Implementation |
-|---|---|
-| Problem description | 4 business questions answered with 8-year NZ energy dataset |
-| Cloud | GCP (BigQuery + GCS) with Terraform IaC including billing budget alert |
-| Data ingestion (Batch) | Bruin Python asset downloads monthly CSVs + `@monthly` pipeline schedule |
-| Data warehouse | BigQuery with partition (trading_date) + clustering (fuel_type) on fact table |
-| Transformations | 4-layer pipeline: raw → staging → core → marts, all via Bruin SQL assets |
-| Dashboard | Looker Studio, 4 pages, live BigQuery connection |
-| Reproducibility | `.env` + `terraform.tfvars.example` + single `bruin run` command |
+| Dimension              | Implementation                                                                |
+| ---------------------- | ----------------------------------------------------------------------------- |
+| Problem description    | 4 business questions answered with 8-year NZ energy dataset                   |
+| Cloud                  | GCP (BigQuery + GCS) with Terraform IaC including billing budget alert        |
+| Data ingestion (Batch) | Bruin Python asset downloads monthly CSVs + `@monthly` pipeline schedule      |
+| Data warehouse         | BigQuery with partition (trading_date) + clustering (fuel_type) on fact table |
+| Transformations        | 4-layer pipeline: raw → staging → core → marts, all via Bruin SQL assets      |
+| Dashboard              | Looker Studio, 4 pages, live BigQuery connection                              |
+| Reproducibility        | `.env` + `terraform.tfvars.example` + single `bruin run` command              |
