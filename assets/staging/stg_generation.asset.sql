@@ -1,20 +1,34 @@
 /* @bruin
+
 name: staging.stg_generation
 type: bq.sql
-depends:
-  - raw.generation_raw
+description: Transforms raw NZ electricity generation data from wide-format EMI CSV files into normalized trading period records. Unpivots 50 trading periods (TP1-TP50) into individual rows and standardizes inconsistent fuel codes from EMI data source. This staging table serves as the foundation for dimensional modeling in core layer, providing clean, structured generation data partitioned by trading date and clustered by fuel type for efficient querying.
+tags:
+  - domain:energy
+  - layer:staging
+  - data_type:fact_table
+  - source:emi_nz
+  - update_pattern:monthly_append
+  - governance:partitioned
+
 materialization:
   type: table
   partition_by: trading_date
   cluster_by:
     - fuel_type
+
+depends:
+  - raw.generation_raw
+
 columns:
   - name: trading_date
-    type: date
+    type: DATE
+    description: NZ electricity market trading date (calendar date). Each trading date contains 50 trading periods of ~30 minutes each, covering a full 24-hour period.
     checks:
       - name: not_null
   - name: trading_period
-    type: integer
+    type: INTEGER
+    description: 'Trading period within the day (1-50). Each period represents ~30 minutes: TP1 = 00:00-00:30, TP2 = 00:30-01:00, etc. Derived from unpivoting TP1-TP50 columns in source data.'
     checks:
       - name: not_null
       - name: min
@@ -22,24 +36,65 @@ columns:
       - name: max
         value: 50
   - name: gen_code
-    type: string
+    type: STRING
+    description: Unique generator code assigned by Electricity Authority. Primary identifier for individual generation units (e.g., TAU2201, HLY2201). Combines with trading_date + trading_period to form natural key.
     checks:
       - name: not_null
   - name: fuel_type
-    type: string
+    type: STRING
+    description: Standardized fuel/technology type for electricity generation. Transformed from inconsistent EMI fuel codes (e.g., 'HYD'→'Hydro', 'ELE'→'Battery'). Used for renewable vs non-renewable classification in downstream marts.
     checks:
       - name: not_null
       - name: accepted_values
-        value: ["Hydro","Geothermal","Gas","Wind","Coal","Solar","Diesel","Wood","Battery","Unknown"]
+        value:
+          - Hydro
+          - Geothermal
+          - Gas
+          - Wind
+          - Coal
+          - Solar
+          - Diesel
+          - Wood
+          - Battery
+          - Unknown
   - name: generation_kwh
-    type: float
+    type: FLOAT
+    description: Actual electricity generation output in kilowatt-hours (kWh) for this specific trading period. Source data filtered to exclude null/negative values during UNPIVOT transformation.
     checks:
       - name: not_null
       - name: non_negative
+  - name: site_code
+    type: STRING
+    description: Physical generation site identifier (e.g., 'TAU' for Taupo, 'HLY' for Huntly). Multiple generators can exist at the same site. Used in downstream dimensional modeling.
+  - name: poc_code
+    type: STRING
+    description: Point of Connection code in the national grid. Technical identifier for grid connection point, primarily used for network analysis and grid management.
+  - name: nwk_code
+    type: STRING
+    description: Network code indicating the regional grid network. Part of EMI's grid topology classification system, used for transmission and distribution analysis.
+  - name: tech_code
+    type: STRING
+    description: Technology classification code from EMI data. Additional granularity beyond fuel_type for specific generation technologies and configurations.
+  - name: trading_month
+    type: STRING
+    description: Derived field in YYYYMM format (e.g., '202401') for convenient monthly aggregations. Used extensively in mart layer for time-series analysis and monthly reporting.
+    checks:
+      - name: not_null
+
 custom_checks:
   - name: row_count_sanity
-    description: "At least 1000 rows per run"
-    query: "SELECT IF(COUNT(*) < 1000, 1, 0) FROM staging.stg_generation"
+    description: Ensures minimum viable data volume per pipeline run. Monthly EMI files should contain thousands of generation records across ~87 active generators and 50 trading periods per day.
+    value: 0
+    query: SELECT IF(COUNT(*) < 1000, 1, 0) FROM staging.stg_generation
+  - name: all_trading_periods_present
+    description: Validates that all 50 trading periods (TP1-TP50) are represented in the data, ensuring no systematic gaps in EMI source files.
+    value: 0
+    query: SELECT IF(COUNT(DISTINCT trading_period) < 50, 1, 0) FROM staging.stg_generation
+  - name: fuel_type_standardization
+    description: Confirms that fuel type mapping logic successfully handles all EMI fuel codes, with minimal 'Unknown' classifications.
+    value: 0
+    query: SELECT IF(COUNTIF(fuel_type = 'Unknown') / COUNT(*) > 0.01, 1, 0) FROM staging.stg_generation
+
 @bruin */
 
 WITH unpivoted AS (
