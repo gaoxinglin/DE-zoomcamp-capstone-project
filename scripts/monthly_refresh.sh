@@ -45,16 +45,36 @@ echo "[2/3] Rebuilding external table and staging..."
 bruin run assets/raw/generation_raw.py       --start-date "$TARGET_DATE" --end-date "$TARGET_DATE"
 bruin run assets/staging/stg_generation.asset.sql --start-date "$TARGET_DATE" --end-date "$TARGET_DATE"
 
+# wait_all <pid>...
+# Waits for every background PID and returns non-zero if any job failed.
+# Plain `wait` without arguments returns 0 even when a child exits non-zero,
+# so we must wait for each PID individually to capture its exit code.
+# We collect all failures before returning so that all error messages are
+# printed rather than stopping at the first failure.
+wait_all() {
+  local failed=0
+  for pid in "$@"; do
+    if ! wait "$pid"; then
+      echo "ERROR: background job (PID $pid) failed"
+      failed=1
+    fi
+  done
+  return $failed
+}
+
 # Step 3: Rebuild core + marts in parallel
 echo "[3/3] Rebuilding core and marts..."
-bruin run assets/core/fct_generation.asset.sql      --start-date "$TARGET_DATE" --end-date "$TARGET_DATE" &
-bruin run assets/core/dim_plant.asset.sql            --start-date "$TARGET_DATE" --end-date "$TARGET_DATE" &
-wait
-bruin run assets/marts/mart_generation_monthly.asset.sql --start-date "$TARGET_DATE" --end-date "$TARGET_DATE" &
-bruin run assets/marts/mart_renewable_ratio.asset.sql    --start-date "$TARGET_DATE" --end-date "$TARGET_DATE" &
-bruin run assets/marts/mart_plant_ranking.asset.sql      --start-date "$TARGET_DATE" --end-date "$TARGET_DATE" &
-bruin run assets/marts/mart_seasonal_pattern.asset.sql   --start-date "$TARGET_DATE" --end-date "$TARGET_DATE" &
-wait
+pids=()
+bruin run assets/core/fct_generation.asset.sql --start-date "$TARGET_DATE" --end-date "$TARGET_DATE" & pids+=($!)
+bruin run assets/core/dim_plant.asset.sql       --start-date "$TARGET_DATE" --end-date "$TARGET_DATE" & pids+=($!)
+wait_all "${pids[@]}"
+
+pids=()
+bruin run assets/marts/mart_generation_monthly.asset.sql --start-date "$TARGET_DATE" --end-date "$TARGET_DATE" & pids+=($!)
+bruin run assets/marts/mart_renewable_ratio.asset.sql    --start-date "$TARGET_DATE" --end-date "$TARGET_DATE" & pids+=($!)
+bruin run assets/marts/mart_plant_ranking.asset.sql      --start-date "$TARGET_DATE" --end-date "$TARGET_DATE" & pids+=($!)
+bruin run assets/marts/mart_seasonal_pattern.asset.sql   --start-date "$TARGET_DATE" --end-date "$TARGET_DATE" & pids+=($!)
+wait_all "${pids[@]}"
 
 echo "========================================"
 echo "Monthly refresh completed: $(date)"

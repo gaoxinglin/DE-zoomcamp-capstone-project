@@ -23,6 +23,8 @@ url = (
 print(f"Downloading {url}")
 response = requests.get(url, timeout=60)
 if response.status_code == 404:
+    # EMI publishes data ~10 days after month end, so a 404 on a recent month
+    # is expected. Exit 0 so Bruin treats this run as a no-op rather than a failure.
     print(f"Data not available for {year_month} (HTTP 404), skipping.")
     raise SystemExit(0)
 response.raise_for_status()

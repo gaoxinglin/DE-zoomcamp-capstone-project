@@ -78,7 +78,6 @@ Icon
 # Don't ignore .env.example or bruin config (no secrets, only ${ENV_VAR} placeholders)
 !.env.example
 !.bruin.yml
-.bruin.yml
 logs/runs
 logs/*.log
 logs/queries

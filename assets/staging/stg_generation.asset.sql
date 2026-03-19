@@ -13,6 +13,8 @@ tags:
 
 materialization:
   type: table
+  strategy: delete+insert
+  incremental_key: trading_date
   partition_by: trading_date
   cluster_by:
     - fuel_type
@@ -97,6 +99,10 @@ custom_checks:
 
 @bruin */
 
+-- BigQuery's UNPIVOT requires all column names to be listed explicitly;
+-- dynamic column lists are not supported in standard SQL, so all 50 TP
+-- columns must be enumerated here. Null and negative values are filtered
+-- out at this stage so downstream layers only ever see valid readings.
 WITH unpivoted AS (
   SELECT
     Site_Code    AS site_code,
@@ -118,7 +124,8 @@ WITH unpivoted AS (
       TP41, TP42, TP43, TP44, TP45, TP46, TP47, TP48, TP49, TP50
     )
   )
-  WHERE generation_kwh IS NOT NULL
+  WHERE PARSE_DATE('%Y-%m-%d', Trading_Date) BETWEEN DATE('{{start_date}}') AND DATE('{{end_date}}')
+    AND generation_kwh IS NOT NULL
     AND generation_kwh >= 0
 )
 

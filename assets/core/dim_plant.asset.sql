@@ -21,19 +21,31 @@ columns:
       - name: not_null
 @bruin */
 
--- Keep only the most recently observed state per generator
-WITH latest AS (
+-- Step 1: find the latest trading date observed for each generator
+WITH latest_date_per_generator AS (
   SELECT
     gen_code,
-    site_code,
-    fuel_type,
-    tech_code,
-    ROW_NUMBER() OVER (
-      PARTITION BY gen_code
-      ORDER BY MAX(trading_date) DESC
-    ) AS rn
+    MAX(trading_date) AS latest_date
   FROM staging.stg_generation
-  GROUP BY gen_code, site_code, fuel_type, tech_code
+  GROUP BY gen_code
+),
+
+-- Step 2: from records on that latest date, pick one row per generator
+-- (ROW_NUMBER handles the rare case where attributes differ within the same day)
+latest_state AS (
+  SELECT
+    s.gen_code,
+    s.site_code,
+    s.fuel_type,
+    s.tech_code,
+    ROW_NUMBER() OVER (
+      PARTITION BY s.gen_code
+      ORDER BY s.trading_date DESC
+    ) AS rn
+  FROM staging.stg_generation s
+  INNER JOIN latest_date_per_generator l
+    ON s.gen_code = l.gen_code
+    AND s.trading_date = l.latest_date
 )
 
 SELECT
@@ -41,5 +53,5 @@ SELECT
   site_code,
   fuel_type,
   tech_code
-FROM latest
+FROM latest_state
 WHERE rn = 1

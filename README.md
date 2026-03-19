@@ -70,6 +70,8 @@ bruin run . --start-date 2018-01-01 --end-date 2026-02-28
 
 No Docker Compose. No separate profile files. No extra package installations.
 
+> **Orchestration & Transformation**: [Bruin](https://bruin-data.github.io/bruin/) is used as a unified pipeline framework — it replaces Airflow (orchestration), dbt (SQL transformations), and Great Expectations (data quality) in a single CLI tool.
+
 ---
 
 ## Data Source

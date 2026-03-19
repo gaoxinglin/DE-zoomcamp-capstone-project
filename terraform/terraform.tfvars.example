@@ -1,0 +1,4 @@
+project_id      = "your-gcp-project-id"
+region          = "australia-southeast1"
+bucket_name     = "your-gcs-bucket-name"
+billing_account = "YOUR-BILLING-ACCOUNT-ID"

@@ -1,4 +1,3 @@
-# TODO: confirm schedule and start date
 name: nz-electricity
 schedule: "@monthly"
 start_date: "2018-01-01"

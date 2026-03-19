@@ -30,10 +30,10 @@ CREATE OR REPLACE EXTERNAL TABLE `{project_id}.raw.generation_raw`
 )
 OPTIONS (
   format                = 'CSV',
-  skip_leading_rows     = 1,
+  skip_leading_rows     = 1,  -- each file has a header row
   uris                  = ['gs://{bucket_name}/raw/*_Generation_MD.csv'],
-  allow_jagged_rows     = true,
-  ignore_unknown_values = true
+  allow_jagged_rows     = true,       -- some EMI files have fewer than 50 TP columns for partial days
+  ignore_unknown_values = true        -- tolerate occasional extra columns added by EMI without breaking the table
 )
 """
 
