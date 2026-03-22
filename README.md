@@ -127,11 +127,11 @@ Bruin's built-in quality checks run automatically after each asset materialises:
 
 | Asset            | Checks                                                                                                                                                                                           |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `stg_generation` | `not_null` (trading_date, gen_code, fuel_type, generation_kwh) · `min/max` (trading_period: 1–50) · `accepted_values` (9 fuel types) · `non_negative` (generation_kwh) · custom row count ≥ 1000 |
+| `stg_generation` | `not_null` (trading_date, gen_code, fuel_type, generation_kwh, trading_month) · `min/max` (trading_period: 1–50) · `accepted_values` (9 fuel types) · `non_negative` (generation_kwh) · custom checks (row count, all 48 trading periods, fuel mapping) |
 | `fct_generation` | `not_null + unique` (generation_id) · `non_negative` (generation_kwh)                                                                                                                            |
 | `dim_plant`      | `not_null + unique` (gen_code) · `not_null` (site_code, fuel_type)                                                                                                                               |
 
-**Total: 17 quality checks** across the pipeline, all passing on full dataset.
+**Total: 20 quality checks** across the pipeline, all passing on full dataset.
 
 ---
 
