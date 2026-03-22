@@ -89,9 +89,9 @@ custom_checks:
     value: 0
     query: SELECT IF(COUNT(*) < 1000, 1, 0) FROM staging.stg_generation
   - name: all_trading_periods_present
-    description: Validates that all 50 trading periods (TP1-TP50) are represented in the data, ensuring no systematic gaps in EMI source files.
+    description: Validates that all 48 standard trading periods (TP1-TP48) are represented in the data. Normal days have 48 periods; DST-start days have 46 but other days in the same month cover the full range; DST-end days have 50. Using threshold 48 correctly rejects genuinely incomplete data without false-failing on normal months (old threshold of 50 would always fail since TP49/TP50 only appear on ~2 days/year).
     value: 0
-    query: SELECT IF(COUNT(DISTINCT trading_period) < 50, 1, 0) FROM staging.stg_generation
+    query: SELECT IF(COUNT(DISTINCT trading_period) < 48, 1, 0) FROM staging.stg_generation
   - name: fuel_type_standardization
     description: Confirms that fuel type mapping logic successfully handles all EMI fuel codes, with minimal 'Unknown' classifications.
     value: 0
